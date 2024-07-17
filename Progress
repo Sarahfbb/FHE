@@ -1,0 +1,11 @@
+When you're ready to use Concrete ML for FHE compilation:
+
+You'll use Concrete ML's tools to convert your trained PyTorch model to an FHE-compatible version.
+Concrete ML will handle the necessary adaptations for FHE compatibility.
+You may need to fine-tune the converted model to regain any lost accuracy.
+
+
+During the Concrete ML compilation process, you might need to make some adjustments based on Concrete ML's requirements or recommendations. This could include:
+
+Adjusting activation functions (e.g., replacing ReLU with a polynomial approximation).
+Modifying or removing operations that are not supported in the FHE context.
