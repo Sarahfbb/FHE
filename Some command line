@@ -22,6 +22,5 @@ python3.10 -m venv ~/.virtualenvs/concrete_env
 source ~/.virtualenvs/concrete_env/bin/activate
 python --version  # Should output Python 3.10.x
 
-# Open the terminal (not remote server)and run the command
+# Open the terminal (not remote server)and run the command,where home/minghui/FHE/Extracted_Features is the path
 scp -r minghui@172.21.46.141:/home/minghui/FHE/Extracted_Features/* ./Documents/
-where home/minghui/FHE/Extracted_Features is the path
