@@ -24,3 +24,18 @@ python --version  # Should output Python 3.10.x
 
 # Open the terminal (not remote server)and run the command,where home/minghui/FHE/Extracted_Features is the path
 scp -r minghui@172.21.46.141:/home/minghui/FHE/Extracted_Features/* ./Documents/
+
+#synchronize the respository from desktop to laptop.(manually0
+rsync -avz /home/minghui/FHE/ minghui@172.21.46.141:/home/minghui/FHE-1
+ #(Automatically)
+nano ~/sync_fhe.sh
+rsync -avz /home/minghui/FHE/ minghui@172.21.46.141:/home/minghui/FHE-1 #Press CTRL + X, then Y, then Enter to save and exit.
+crontab -e
+0 * * * * /home/minghui/sync_fhe.sh  #Press CTRL + X, then Y, then Enter to save and exit.
+crontab -l
+
+
+
+
+
+
