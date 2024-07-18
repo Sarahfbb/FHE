@@ -9,3 +9,45 @@ During the Concrete ML compilation process, you might need to make some adjustme
 
 Adjusting activation functions (e.g., replacing ReLU with a polynomial approximation).
 Modifying or removing operations that are not supported in the FHE context.
+
+2 S Training.py
+Early stopping triggered after 38 epochs
+Final Accuracies - Train: 100.00%, Val: 84.93%, Test: 84.13%
+
+S count flops.py"
+VGG Feature Extractor FLOPs: 626,895,360
+MLP Classifier FLOPs: 6,590,720
+Total FLOPs (VGG + MLP): 633,486,080
+
+2 M Training + Evolutionary
+Best ensemble validation accuracy: 0.8544
+Best ensemble test accuracy: 0.8473
+Best ensemble composition:
+Class 0: Model 7
+Class 1: Model 4
+Class 2: Model 7
+Class 3: Model 4
+Class 4: Model 4
+Class 5: Model 7
+Class 6: Model 9
+Class 7: Model 5
+Class 8: Model 1
+Class 9: Model 3
+
+
+M count flops
+VGG Feature Extractor FLOPs: 626,895,360
+MLP Classifier for class 0 (Model 7) FLOPs: 13,061,376
+MLP Classifier for class 1 (Model 4) FLOPs: 13,061,376
+MLP Classifier for class 2 (Model 7) FLOPs: 13,061,376
+MLP Classifier for class 3 (Model 4) FLOPs: 13,061,376
+MLP Classifier for class 4 (Model 4) FLOPs: 13,061,376
+MLP Classifier for class 5 (Model 7) FLOPs: 13,061,376
+MLP Classifier for class 6 (Model 9) FLOPs: 13,061,376
+MLP Classifier for class 7 (Model 5) FLOPs: 13,061,376
+MLP Classifier for class 8 (Model 1) FLOPs: 13,061,376
+MLP Classifier for class 9 (Model 3) FLOPs: 13,061,376
+
+Total MLP Classifiers FLOPs: 130,613,760
+
+Total FLOPs (VGG + Ensemble of 10 MLPs): 757,509,120
