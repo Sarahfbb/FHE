@@ -22,7 +22,7 @@ python3.10 -m venv ~/.virtualenvs/concrete_env
 source ~/.virtualenvs/concrete_env/bin/activate
 python --version  # Should output Python 3.10.x
 
-# Open the terminal (not remote server)and run the command,where home/minghui/FHE/Extracted_Features is the path
+# Open the terminal (not remote server)and run the command,where home/minghui/FHE/Extracted_Features is the path(Run the files of remote to local)
 scp -r minghui@172.21.46.141:/home/minghui/FHE/Extracted_Features/* ./Documents/
 
 #synchronize the respository from desktop to laptop.(manually0
@@ -34,12 +34,40 @@ crontab -e
 0 * * * * /home/minghui/sync_fhe.sh  #Press CTRL + X, then Y, then Enter to save and exit.
 crontab -l
 
-#Update the CUDA driver
+#Update the Nvidia driver
+Install driver:
 1. sudo apt-get purge nvidia* (remove current driver)
+- sudo apt-get remove --purge '^libnvidia-.*'
+- sudo apt-get remove --purge '^cuda-.*'
+- sudo apt-get install linux-headers-$(uname -r)
+- sudo apt-get remove ubuntu-drivers-common
+
 2. sudo apt-get install ubuntu-drivers-common
 3. sudo ubuntu-drivers autoinstall
 4. sudo reboot
 5. nvidia-smi
+
+#Verify NVIDIA Driver and CUDA Installation
+nvidia-smi
+nvcc --version
+
+# Solving the Cuda compilation tools issue
+1.Remove any existing CUDA installations:
+sudo apt-get purge cuda*
+sudo apt-get autoremove
+
+2.Download and install CUDA 11.4:
+From this website https://developer.nvidia.com/cuda-11-4-1-download-archive?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=18.04&target_type=deb_local
+to download the appropriate installer for your operating system.
+
+3.Add CUDA to your PATH and LD_LIBRARY_PATH:
+echo 'export PATH=/usr/local/cuda-11.4/bin${PATH:+:${PATH}}' >> ~/.bashrc
+echo 'export LD_LIBRARY_PATH=/usr/local/cuda-11.4/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}' >> ~/.bashrc
+source ~/.bashrc
+
+
+#Install the appropriate  torch
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu113
 
 
 
