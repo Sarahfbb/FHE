@@ -34,6 +34,12 @@ crontab -e
 0 * * * * /home/minghui/sync_fhe.sh  #Press CTRL + X, then Y, then Enter to save and exit.
 crontab -l
 
+#Update the CUDA driver
+1. sudo apt-get purge nvidia* (remove current driver)
+2. sudo apt-get install ubuntu-drivers-common
+3. sudo ubuntu-drivers autoinstall
+4. sudo reboot
+5. nvidia-smi
 
 
 
