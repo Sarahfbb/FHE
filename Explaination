@@ -1,0 +1,41 @@
+Yes, it's normal for the FLOPs count to increase when you modify the model to be FHE-compatible. There are a few reasons for this:
+
+
+
+
+Polynomial Activation Function: In your FHE-friendly version, you've replaced the ReLU activation with a polynomial activation function (poly_activation). 
+This function (0.5 * x + 0.25 * x**2) involves more operations than ReLU, which is a simple max operation.
+Removal of Dropout: The FHE-friendly version doesn't use dropout. While dropout reduces computations during training, 
+it's typically not used during inference. The FLOPs count for inference might be similar, but the FHE-friendly version will have consistent FLOPs for both training and inference.
+Different Layer Sizes: Your FHE-friendly version uses slightly different layer sizes (256 -> 128 -> num_classes) compared to the original version (256 -> 128 -> num_classes with dropout in between). 
+This can affect the total number of operations.
+Computation of Polynomial Activation: In the FLOPs counting function, you're explicitly counting the operations for the polynomial activation, which adds to the total FLOPs count.
+
+The increase in FLOPs is a common trade-off when adapting models for FHE compatibility. 
+FHE-friendly operations often require more computational steps to approximate functions that are simple in non-encrypted computations.
+It's important to note that while the FLOPs count is higher, this doesn't necessarily mean the FHE version will be slower in all contexts.
+The actual performance will depend on the specific FHE scheme and implementation used. The FLOPs count is just one metric and doesn't capture all aspects of computational efficiency in an FHE context.
+When working with FHE, the focus is often on making the operations compatible and secure rather than minimizing FLOPs.
+The increase in FLOPs you're seeing is a normal part of this trade-off between standard neural network operations and FHE-compatible operations.  
+
+The main benefits of quantization are:
+
+Reduced model size
+Faster inference time
+Lower memory bandwidth requirements
+Compatibility with hardware accelerators or, in your case, FHE schemes
+
+1.Some expla
+
+When you're ready to use Concrete ML for FHE compilation:
+
+You'll use Concrete ML's tools to convert your trained PyTorch model to an FHE-compatible version.
+Concrete ML will handle the necessary adaptations for FHE compatibility.
+You may need to fine-tune the converted model to regain any lost accuracy.
+
+
+During the Concrete ML compilation process, you might need to make some adjustments based on Concrete ML's requirements or recommendations. This could include:
+
+Adjusting activation functions (e.g., replacing ReLU with a polynomial approximation).
+Modifying or removing operations that are not supported in the FHE context.
++
