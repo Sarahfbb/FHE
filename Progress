@@ -1,25 +1,21 @@
-When you're ready to use Concrete ML for FHE compilation:
+1.Single-multi
+~2 S Training.py
+Final Accuracies - Train: 99.75%, Val: 84.91%, Test: 83.82%
+Saved as 'fhe_friendly_mlp_model.pth'
 
-You'll use Concrete ML's tools to convert your trained PyTorch model to an FHE-compatible version.
-Concrete ML will handle the necessary adaptations for FHE compatibility.
-You may need to fine-tune the converted model to regain any lost accuracy.
-
-
-During the Concrete ML compilation process, you might need to make some adjustments based on Concrete ML's requirements or recommendations. This could include:
-
-Adjusting activation functions (e.g., replacing ReLU with a polynomial approximation).
-Modifying or removing operations that are not supported in the FHE context.
-
-2 S Training.py
-Early stopping triggered after 38 epochs
-Final Accuracies - Train: 100.00%, Val: 84.93%, Test: 84.13%
-
-S count flops.py"
+~S count flops.py"
 VGG Feature Extractor FLOPs: 626,895,360
-MLP Classifier FLOPs: 6,590,720
-Total FLOPs (VGG + MLP): 633,486,080
+MLP Classifier FLOPs: 13,063,680
+Total FLOPs (VGG + MLP): 639,959,040
 
-2 M Training + Evolutionary
+~S QAT
+save as"Sfine_tuned_quantized_mlp_model.pth" and 'Sfinal_brevitas_quantized_mlp_model.pth'
+
+Final Accuracies - Val: 99.92%, Test: 83.25%
+2 Multiple binary
+~2 M Training + Evolutionary
+Saved as 'fhe_friendly_ensemble_class_{class_id}_mlp_{i}.pt'
+And the best ensemble saved as 'best_ensembles.pt'
 Best ensemble validation accuracy: 0.8544
 Best ensemble test accuracy: 0.8473
 Best ensemble composition:
@@ -34,8 +30,7 @@ Class 7: Model 5
 Class 8: Model 1
 Class 9: Model 3
 
-
-M count flops
+~M count flops
 VGG Feature Extractor FLOPs: 626,895,360
 MLP Classifier for class 0 (Model 7) FLOPs: 13,061,376
 MLP Classifier for class 1 (Model 4) FLOPs: 13,061,376
@@ -49,5 +44,7 @@ MLP Classifier for class 8 (Model 1) FLOPs: 13,061,376
 MLP Classifier for class 9 (Model 3) FLOPs: 13,061,376
 
 Total MLP Classifiers FLOPs: 130,613,760
-
 Total FLOPs (VGG + Ensemble of 10 MLPs): 757,509,120
+
+~M QAT
+save as"Mfine_tuned_quantized_mlp_model.pth" and 'Mfinal_brevitas_quantized_mlp_model.pth'
