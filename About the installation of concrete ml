@@ -1,3 +1,5 @@
+#Updating the glibc
+
 1. 安装依赖
 
 首先，我们需要安装编译GLIBC所需的一些依赖库：
@@ -42,3 +44,35 @@
     ldd --version
 
 如果看到类似glibc 2.34的输出，说明升级成功。
+
+#Install the concrete ml,on the terminal of VScode
+#Install CMake
+1.Install CMake using Homebrew
+brew install cmake
+
+2.Update your PATH within the environment:After installation, add the Homebrew bin to your PATH:
+echo 'export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"' >> $CONDA_PREFIX/etc/conda/activate.d/env_vars.sh
+
+3.Reload your environment:Deactivate and reactivate your environment to apply the changes:
+conda deactivate
+conda activate concrete_env
+
+4.Verify the version of the cmake
+cmake --version
+
+#After updating the glibc, update the remote system, you'll need to upgrade Ubuntu from 18.04 to a newer version(Eg glibc 2.35 match Ubuntu 22.04,glibc 2.31 match Ubuntu 2.31)
+1.Check your current Ubuntu version:
+lsb_release -a
+
+2.Upgrade to the next LTS version:(This will take a while and will upgrade your entire system.)
+sudo do-release-upgrade
+
+3.After the upgrade and reboot, check GLIBC version again:
+ldd --version
+
+#Install concreteml
+pip install -U pip wheel setuptools
+pip install concrete-ml
+
+
+
