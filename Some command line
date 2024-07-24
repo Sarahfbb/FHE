@@ -58,7 +58,8 @@ sudo apt-get autoremove
 
 2.Download and install CUDA 11.4:
 From this website "https://developer.nvidia.com/cuda-11-4-1-download-archive?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=18.04&target_type=deb_local"
-to download the appropriate installer for your operating system.
+to download the appropriate installer for your operating system.If you don't know ,you can run 'uname -a'  and  'lsb_release -a'
+
 
 3.Add CUDA to your PATH and LD_LIBRARY_PATH:
 echo 'export PATH=/usr/local/cuda-11.4/bin${PATH:+:${PATH}}' >> ~/.bashrc
