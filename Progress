@@ -48,3 +48,5 @@ Total FLOPs (VGG + Ensemble of 10 MLPs): 757,509,120
 
 ~M QAT
 save as"Mfine_tuned_quantized_mlp_model.pth" and 'Mfinal_brevitas_quantized_mlp_model.pth'
+Final ensemble accuracies - Val: 99.70%, Test: 83.80%
+
