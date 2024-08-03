@@ -1,5 +1,5 @@
 1.Single-multi
-~2 S Training.py
+~S_Training.py(No normal layer)
 Final Accuracies - Train: 99.75%, Val: 84.91%, Test: 83.82%
 Saved as 'fhe_friendly_mlp_model.pth'
 
@@ -8,10 +8,13 @@ VGG Feature Extractor FLOPs: 626,895,360
 MLP Classifier FLOPs: 13,063,680
 Total FLOPs (VGG + MLP): 639,959,040
 
-~S QAT
-save as"Sfine_tuned_quantized_mlp_model.pth" and 'Sfinal_brevitas_quantized_mlp_model.pth'
+~S_qat_training under then 2S_qat_training(With  Batch Normal layer)
 
-Final Accuracies - Val: 99.92%, Test: 83.25%
+Plots saved as 'combined_plot.png'
+Saved as 'fhe_qat_friendly_mlp_model.pth'
+
+~check.py
+check the compatibility
 2 Multiple binary
 ~2 M Training + Evolutionary
 Saved as 'fhe_friendly_ensemble_class_{class_id}_mlp_{i}.pt'
