@@ -1,17 +1,18 @@
 1.Single-multi
 ~S_Training.py(No normal layer)
-Final Accuracies - Train: 99.75%, Val: 84.91%, Test: 83.82%
-Saved as 'fhe_friendly_mlp_model.pth'
-
+Final Accuracies - Train: 99.73%, Val: 85.23%, Test: 84.37%
+Best Validation Accuracy: 85.71%
+Save as "fhe_friendly_mlp_model.pth"
 ~S count flops.py"
 VGG Feature Extractor FLOPs: 626,895,360
 MLP Classifier FLOPs: 13,063,680
 Total FLOPs (VGG + MLP): 639,959,040
 
 ~S_qat_training under then 2S_qat_training(With  Batch Normal layer)
-
-Plots saved as 'combined_plot.png'
-Saved as 'fhe_qat_friendly_mlp_model.pth'
+Train Loss=0.0458, Train Acc=99.08%, Val Acc=84.18%]
+Final Test Accuracy: 83.63%
+Plots saved as '2combined_plot.png'
+Save as "fhe_friendly_qat_mlp_model.pth"
 
 ~check.py
 check the compatibility
