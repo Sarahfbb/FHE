@@ -4,7 +4,6 @@ cd /tmp
 wget https://www.python.org/ftp/python/3.10.0/Python-3.10.0.tgz
 tar -xf Python-3.10.0.tgz
 cd Python-3.10.0
-
 sudo apt update
 sudo apt install -y build-essential libssl-dev zlib1g-dev libncurses5-dev libncursesw5-dev libreadline-dev libsqlite3-dev libgdbm-dev libdb5.3-dev libbz2-dev libexpat1-dev liblzma-dev tk-dev libffi-dev
 
@@ -18,10 +17,19 @@ source ~/.virtualenvs/concrete_env/bin/activate
 python --version  # Should output Python 3.10.x
 
 #Vscode Terminal
+Option 1:
 python3.10 -m venv ~/.virtualenvs/concrete_env
 source ~/.virtualenvs/concrete_env/bin/activate
 python --version  # Should output Python 3.10.x
 
+Option 2:
+If there's 3.10 python version already:
+#install the required package
+sudo apt install python3.10-venv
+#After the installation is complete, try creating the virtual environment again:
+python3 -m venv xxx
+#If successful, activate the new virtual environment:
+source xxx/bin/activate
 # Open the terminal (not remote server)and run the command,where home/minghui/FHE/Extracted_Features is the path(Run the files of remote to local)
 scp -r minghui@172.21.46.141:/home/minghui/FHE/Extracted_Features/* ./Documents/
 
