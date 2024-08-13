@@ -33,6 +33,18 @@ source xxx/bin/activate
 # Open the terminal (not remote server)and run the command,where home/minghui/FHE/Extracted_Features is the path(Run the files of remote to local)
 scp -r minghui@172.21.46.141:/home/minghui/FHE/Extracted_Features/* ./Documents/
 
+#scp fail
+1.check the name of directory
+ls -l /home/minghui/FHE/
+2.Find the directori you found,maybe there's tab in the name of directory like this"best _ensembles"
+3.Modify it
+Eg:  mv "M _models" M_models
+4.scp again
+scp -r minghui@172.21.46.141:/home/minghui/FHE/Extracted_Features/* ./Documents/
+
+
+
+
 #synchronize the respository from desktop to laptop.(manually0
 rsync -avz /home/minghui/FHE/ minghui@172.21.46.141:/home/minghui/FHE-1
  #(Automatically)
