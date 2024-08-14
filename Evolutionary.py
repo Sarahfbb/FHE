@@ -22,37 +22,45 @@ test_targets = np.load('test_targets.npy')
 scaler = StandardScaler()
 val_features = scaler.fit_transform(val_features)
 test_features = scaler.transform(test_features)
-
 class FHEFriendlyMLPClassifier(nn.Module):
-    def __init__(self, input_dim):
+    def __init__(self, input_dim, num_classes):
         super(FHEFriendlyMLPClassifier, self).__init__()
         self.fc1 = nn.Linear(input_dim, 256)
+        self.bn1 = nn.BatchNorm1d(256)
         self.fc2 = nn.Linear(256, 128)
-        self.fc3 = nn.Linear(128, 1)
-        
+        self.bn2 = nn.BatchNorm1d(128)
+        self.fc3 = nn.Linear(128, num_classes)
         self.init_weights()
 
     def init_weights(self):
-        nn.init.xavier_uniform_(self.fc1.weight)
-        nn.init.xavier_uniform_(self.fc2.weight)
-        nn.init.xavier_uniform_(self.fc3.weight)
+        for layer in [self.fc1, self.fc2, self.fc3]:
+            nn.init.xavier_uniform_(layer.weight)
+            nn.init.zeros_(layer.bias)
 
     def forward(self, x):
-        x = self.poly_activation(self.fc1(x))
-        x = self.poly_activation(self.fc2(x))
+        x = self.fc1(x)
+        x = self.bn1(x)
+        x = self.poly_activation(x)
+        
+        x = self.fc2(x)
+        x = self.bn2(x)
+        x = self.poly_activation(x)
+        
         x = self.fc3(x)
         return x
 
-    def poly_activation(self, x):
-        return 0.5 * x + 0.25 * x**2
+    @staticmethod
+    def poly_activation(x):
+        return 0.5 * x + 0.25 * x.pow(2)
 
 model_cache = {}
+
 
 def load_model(class_id, model_num):
     key = (class_id, model_num)
     if key not in model_cache:
         model_filename = f'fhe_friendly_ensemble_class_{class_id}_mlp_{model_num}.pt'
-        model = FHEFriendlyMLPClassifier(val_features.shape[1]).to(device)
+        model = FHEFriendlyMLPClassifier(input_dim=val_features.shape[1], num_classes=1).to(device)
         model.load_state_dict(torch.load(model_filename, map_location=device))
         model.eval()
         model_cache[key] = model
