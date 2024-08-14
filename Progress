@@ -8,7 +8,7 @@ VGG Feature Extractor FLOPs: 626,895,360
 MLP Classifier FLOPs: 13,063,680
 Total FLOPs (VGG + MLP): 639,959,040
 
-~S_qat_training under then 2S_qat_training(With  Batch Normal layer)
+~S_qat_training(With  Batch Normal layer)
 Train Loss=0.0458, Train Acc=99.08%, Val Acc=84.18%]
 Final Test Accuracy: 83.63%
 Plots saved as '2combined_plot.png'
@@ -48,22 +48,27 @@ Memory Used: 141545.57 KB
 Prediction Correct: True
 
 2 Multiple binary
-~2 M Training + Evolutionary
+~M_Training + Evolutionary
 Saved as 'fhe_friendly_ensemble_class_{class_id}_mlp_{i}.pt'
 And the best ensemble saved as 'best_ensembles.pt'
-Best ensemble validation accuracy: 0.8544
-Best ensemble test accuracy: 0.8473
+Early stopping at generation 33
+Best ensemble validation accuracy: 0.8457
+Best ensemble test accuracy: 0.8493
 Best ensemble composition:
-Class 0: Model 7
-Class 1: Model 4
-Class 2: Model 7
-Class 3: Model 4
-Class 4: Model 4
-Class 5: Model 7
-Class 6: Model 9
-Class 7: Model 5
-Class 8: Model 1
-Class 9: Model 3
+Class 0: Model 0
+Class 1: Model 3
+Class 2: Model 8
+Class 3: Model 9
+Class 4: Model 3
+Class 5: Model 4
+Class 6: Model 2
+Class 7: Model 8
+Class 8: Model 7
+Class 9: Model 5
+Total running time: 7040.45 seconds
+
+~M_qat_Training
+
 
 ~M count flops
 VGG Feature Extractor FLOPs: 626,895,360
@@ -81,7 +86,4 @@ MLP Classifier for class 9 (Model 3) FLOPs: 13,061,376
 Total MLP Classifiers FLOPs: 130,613,760
 Total FLOPs (VGG + Ensemble of 10 MLPs): 757,509,120
 
-~M QAT
-save as"Mfine_tuned_quantized_mlp_model.pth" and 'Mfinal_brevitas_quantized_mlp_model.pth'
-Final ensemble accuracies - Val: 99.70%, Test: 83.80%
 

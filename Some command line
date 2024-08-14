@@ -33,6 +33,18 @@ source xxx/bin/activate
 # Open the terminal (not remote server)and run the command,where home/minghui/FHE/Extracted_Features is the path(Run the files of remote to local)
 scp -r minghui@172.21.46.141:/home/minghui/FHE/Extracted_Features/* ./Documents/
 
+#scp fail
+1.check the name of directory
+ls -l /home/minghui/FHE/
+2.Find the directori you found,maybe there's tab in the name of directory like this"best _ensembles"
+3.Modify it
+Eg:  mv "M _models" M_models
+4.scp again
+scp -r minghui@172.21.46.141:/home/minghui/FHE/Extracted_Features/* ./Documents/
+
+
+
+
 #synchronize the respository from desktop to laptop.(manually0
 rsync -avz /home/minghui/FHE/ minghui@172.21.46.141:/home/minghui/FHE-1
  #(Automatically)
@@ -74,9 +86,27 @@ echo 'export PATH=/usr/local/cuda-11.4/bin${PATH:+:${PATH}}' >> ~/.bashrc
 echo 'export LD_LIBRARY_PATH=/usr/local/cuda-11.4/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}' >> ~/.bashrc
 source ~/.bashrc
 
-
 #Install the appropriate  torch
 pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu113
+
+
+#Using conda on server rather than pip
+1.Downloading conda
+https://www.anaconda.com/download/success
+
+2.scp to the server
+scp Anaconda3-2024.06-1-Linux-x86_64.sh minghui@172.21.46.131:./
+
+3 Create a new virtual environment
+conda create -n pytorch python=3.10
+conda activate pytorch
+
+3.Downloading the cuda 
+Find on this website:https://pytorch.org/
+Eg: conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
+
+
+
 
 
 
