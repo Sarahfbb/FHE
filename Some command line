@@ -106,6 +106,26 @@ Find on this website:https://pytorch.org/
 Eg: conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
 
 
+#pushing from vscode to Github
+1.Under the ssh,list all of directory under this ssh and then push to this directory
+ls
+cd SCA_with_Ensemble_learning/
+
+2.List all of files and directories on the "SCA_with_Ensemble_learning"
+Eg:We wanna push the "Good.py"
+
+3.Some command lines
+git add Good.py
+git commit -m "Good.py"
+git config --global user.email "zmhsarah@gmail.com" - Sets the global Git email
+git config --global user.name "minghui" - Sets the global Git username
+git push - Pushes committed changes to the remote repository (GitHub in this case)
+git pull - Pulls changes from the remote repository
+git config --global push.default matching - Sets the push behavior to 'matching'
+
+
+
+
 
 
 
