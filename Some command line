@@ -123,6 +123,19 @@ git push - Pushes committed changes to the remote repository (GitHub in this cas
 git pull - Pulls changes from the remote repository
 git config --global push.default matching - Sets the push behavior to 'matching'
 
+#Running the file (You can turn of the computer anytime)
+
+1.Set up the name of the file
+screen -S name
+screen -r name(exist)
+2.Activate the virtual environment
+conda activate pytorch
+3.Run the file
+python3 src/original file name.py &> result_name.out
+4.exit
+escape:Ctrl+A + D
+5.End the running
+crtl + D
 
 
 
