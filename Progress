@@ -3,6 +3,10 @@
 Final Accuracies - Train: 99.73%, Val: 85.23%, Test: 84.37%
 Best Validation Accuracy: 85.71%
 Save as "fhe_friendly_mlp_model.pth"
+
+~reduced S_Trainign
+Final Accuracies - Train: 98.50%, Val: 85.77%, Test: 85.14%
+
 ~S count flops.py"
 VGG Feature Extractor FLOPs: 626,895,360
 MLP Classifier FLOPs: 13,063,680
@@ -13,6 +17,10 @@ Train Loss=0.0458, Train Acc=99.08%, Val Acc=84.18%]
 Final Test Accuracy: 83.63%
 Plots saved as '2combined_plot.png'
 Save as "fhe_friendly_qat_mlp_model.pth"
+
+~reduced_S_QAT_Training
+Train Loss=0.0519, Train Acc=98.26%, Val Acc=85.58% Final Test Accuracy: 85.13%
+Plots saved as 'reduced_combined_plot.png'
 
 ~S_fhe_compilation_simulation.py
 FHE Simulation Results:
@@ -66,6 +74,24 @@ Class 7: Model 8
 Class 8: Model 7
 Class 9: Model 5
 Total running time: 7040.45 seconds
+
+~reduced_M_Training + Evolutionary
+Early stopping at generation 54
+Best ensemble validation accuracy: 0.8576
+Best ensemble test accuracy: 0.8493
+Best ensemble composition:
+Class 0: Model 9
+Class 1: Model 1
+Class 2: Model 3
+Class 3: Model 3
+Class 4: Model 8
+Class 5: Model 5
+Class 6: Model 9
+Class 7: Model 8
+Class 8: Model 2
+Class 9: Model 9
+
+Total running time: 581.79 seconds
 
 ~M_qat_Training
 
