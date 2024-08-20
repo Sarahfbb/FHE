@@ -136,6 +136,9 @@ python3 src/original file name.py &> result_name.out
 escape:Ctrl+A + D
 5.End the running
 crtl + D
+Note,if the whole file named FHE,and then the en_cryption is on the FHE,then you should funthis file by this line:
+python3 en_cryption.py &> result_good.out   #No need add the path
+
 
 
 
