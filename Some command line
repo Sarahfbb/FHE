@@ -90,11 +90,12 @@ source ~/.bashrc
 pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu113
 
 
-#Using conda on server rather than pip
+#Using conda on server rather than pip(Do it on the local terminal)
 1.Downloading conda
 https://www.anaconda.com/download/success
 
 2.scp to the server
+cd ~/Downloads
 scp Anaconda3-2024.06-1-Linux-x86_64.sh minghui@172.21.46.131:./
 
 3 Create a new virtual environment
@@ -106,25 +107,29 @@ Find on this website:https://pytorch.org/
 Eg: conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
 
 
-#pushing from vscode to Github
+#pushing from vscode to Github,under the corresponding ssh terminal
 1.Under the ssh,list all of directory under this ssh and then push to this directory
 ls
 cd SCA_with_Ensemble_learning/
 
 2.List all of files and directories on the "SCA_with_Ensemble_learning"
-Eg:We wanna push the "Good.py"
+ls
 
-3.Some command lines
+3.Some command lines(Eg:We wanna push the "Good.py")
 git add Good.py
 git commit -m "Good.py"
-git config --global user.email "zmhsarah@gmail.com" - Sets the global Git email
-git config --global user.name "minghui" - Sets the global Git username
+git config --global user.email "zmhsarah@gmail.com" - Sets the global Git email(option)
+git config --global user.name "minghui" - Sets the global Git username(option)
 git push - Pushes committed changes to the remote repository (GitHub in this case)
 git pull - Pulls changes from the remote repository
 git config --global push.default matching - Sets the push behavior to 'matching'
+3.Some command lines(EG'update the src directory)
+git add src/
+git commit -m "Update src directory"
+git push
+git pull
 
-#Running the file (You can turn of the computer anytime)
-
+#Running the file on vscoe(You can turn of the computer anytime)
 1.Set up the name of the file
 screen -S name
 screen -r name(exist)
