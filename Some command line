@@ -41,6 +41,7 @@ ls -l /home/minghui/FHE/
 Eg:  mv "M _models" M_models
 4.scp again
 scp -r minghui@172.21.46.141:/home/minghui/FHE/Extracted_Features/* ./Documents/
+scp -r minghui@172.21.46.131:/home/minghui/SCA_with_Ensemble_learnig/Result/* ./minghui@172.21.46.133:/home/minghui/SCA_with_Ensemble_learnig/Result/
 
 
 
