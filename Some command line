@@ -125,6 +125,10 @@ source ~/.bashrc
 Find on this website:https://pytorch.org/
 Eg: conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
 
+#Just activative the environment
+cd /home/sarah/Desktop/FHE (cd+blank+path of the enviroment,can find the folder of the environment)
+source .venv/bin/activate  (.venv is the name of environment)
+
 
 #pushing from vscode to Github,under the corresponding ssh terminal
 1.Under the ssh,list all of directory under this ssh and then push to this directory
