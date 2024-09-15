@@ -167,8 +167,8 @@ crtl + D
 Note,if the whole file named FHE,and then the en_cryption is on the FHE,then you should funthis file by this line:
 python3 en_cryption.py &> result_good.out   #No need add the path
 
-
-
+#Batch Process
+python S/Batch_test.py --start 0 --end 50 &> result_50-100.out
 
 
 
