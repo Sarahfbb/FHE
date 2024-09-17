@@ -172,6 +172,23 @@ python3 en_cryption.py &> result_good.out   #No need add the path
 python S/Batch_test.py --start 0 --end 50 &> result_50-100.out
 
 
+#Operation on Github
+1.To make a GitHub repository private, you can follow these steps:
+
+Go to your GitHub repository page.
+Click on the "Settings" tab near the top of the page.
+Scroll down to the "Danger Zone" section.
+Find the "Change repository visibility" option and click on "Change visibility".
+Select "Make private" from the dropdown menu.
+GitHub will ask you to confirm by typing the repository name. Enter it and click "I understand, make this repository private".
+2.To add or modify another user's access to your private GitHub repository, you can follow these steps:
+
+Go to your GitHub repository page.
+Click on the "Settings" tab near the top of the page.
+In the left sidebar, click on "Collaborators and teams".
+You may need to confirm your password.
+Under "Manage access", click the "Add people" or "Add teams" button.
+
 
 
 
