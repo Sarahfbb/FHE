@@ -151,6 +151,7 @@ git add src/
 git commit -m "Update src directory"
 git push
 git pull
+Password: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
 
 #Running the file on vscoe(You can turn of the computer anytime)
 1.Set up the name of the file
