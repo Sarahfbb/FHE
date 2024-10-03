@@ -61,6 +61,8 @@ def main():
         overall_pbar.update(1)
 
         model_load_start = time.time()
+        #for n_bits in [4, 6, 8]:
+   # model = QuantFHEFriendlyMLPClassifier(input_dim, num_classes, n_bits=n_bits, rounding_threshold_bits=6)
         model = QuantFHEFriendlyMLPClassifier(input_dim, num_classes)
         model.load_state_dict(torch.load(MODEL_PATH, map_location=torch.device('cpu')))
         model.eval()
