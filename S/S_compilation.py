@@ -28,6 +28,7 @@ def compile_model(model, input_dim):
                 model,
                 dummy_input,
                 n_bits=6,
+                p_error=0.01, #add this
                 verbose=True
             )
             end_time = time.time()
