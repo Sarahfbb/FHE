@@ -190,6 +190,11 @@ You may need to confirm your password.
 Under "Manage access", click the "Add people" or "Add teams" button.
 
 
+#Update discord app
+sudo apt update
+sudo apt upgrade discord
+
+
 
 
 
