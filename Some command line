@@ -190,10 +190,13 @@ You may need to confirm your password.
 Under "Manage access", click the "Add people" or "Add teams" button.
 
 
-#Update discord app
+#Update xxx app
 sudo apt update
-sudo apt upgrade discord
+sudo apt upgrade xxx
 
+# Cannot connect server on vscode:
+rm -rf /home/user name/.vscode-server  #user name in this server
+sudo reboot
 
 
 
