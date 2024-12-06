@@ -198,7 +198,17 @@ sudo apt upgrade xxx
 rm -rf /home/user name/.vscode-server  #user name in this server
 sudo reboot
 
-
+#Fully disable speech-dispatcher:
+1. stop and disable it:
+sudo systemctl stop speech-dispatcher
+sudo systemctl disable speech-dispatcher
+2.Then mask it to prevent it from being started by other services:
+sudo systemctl mask speech-dispatcher
+3.Also, let's disable the user-level service:
+systemctl --user mask speech-dispatcher
+systemctl --user stop speech-dispatcher
+4.Check the status again:
+systemctl status speech-dispatcher
 
 
 
